@@ -1,0 +1,10 @@
+{
+  "name": "acessibilidade-projeto",
+  "version": "1.0.0",
+  "scripts": {
+    "test-a11y": "node testA11y.js"
+  },
+  "devDependencies": {
+    "pa11y": "^5.0.0"
+  }
+}
