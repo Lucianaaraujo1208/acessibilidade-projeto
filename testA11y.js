@@ -1,10 +1,12 @@
 const pa11y = require('pa11y');
 
-// Função para rodar o teste de acessibilidade na página HTML local
-async function runAccessibilityTest() {
-    const results = await pa11y('file://' + __dirname + '/index.html');
+pa11y('http://localhost:3000', {
+    timeout: 120000, // Aumentado para 120 segundos
+    // outras configurações
+})
+.then(results => {
     console.log(results);
-}
-
-// Executa o teste
-runAccessibilityTest();
+})
+.catch(error => {
+    console.error(error);
+});

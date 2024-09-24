@@ -1,10 +1,14 @@
 {
   "name": "acessibilidade-projeto",
   "version": "1.0.0",
+  "description": "Seu projeto de acessibilidade",
+  "main": "index.js",
   "scripts": {
+    "start": "http-server .",
     "test-a11y": "node testA11y.js"
   },
   "devDependencies": {
-    "pa11y": "^5.0.0"
+    "http-server": "^14.1.1",
+    "pa11y": "^8.0.0"
   }
 }
