@@ -3,12 +3,19 @@
   "version": "1.0.0",
   "description": "Seu projeto de acessibilidade",
   "main": "index.js",
+  "type": "module",
   "scripts": {
-    "start": "http-server .",
     "test-a11y": "node testA11y.js"
+  },
+  "dependencies": {
+    "axe-core": "^4.10.0",
+    "puppeteer": "^23.4.1"
   },
   "devDependencies": {
     "http-server": "^14.1.1",
     "pa11y": "^8.0.0"
-  }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
