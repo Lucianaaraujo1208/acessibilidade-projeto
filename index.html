@@ -5,55 +5,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Página de Teste de Acessibilidade</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        body { font-family: Arial, sans-serif; }
-        input, button { padding: 10px; margin: 5px; }
-    </style>
 </head>
 <body>
     <header>
         <h1>Acessibilidade no Web Design</h1>
     </header>
-
     <main>
         <section>
             <h2>Teste de Acessibilidade</h2>
             <p>Esta página será usada para simular uma análise automática de acessibilidade.</p>
             <button id="botaoTeste">Clique para testar</button>
         </section>
-
-        <section>
-            <h2>Verificador de Acessibilidade</h2>
-            <input type="text" id="urlInput" placeholder="Insira a URL" required>
-            <button onclick="checkAccessibility()">Verificar</button>
-            <div id="result"></div>
-            <div id="customResult"></div> <!-- Nova div para resultados personalizados -->
-        </section>
     </main>
-
     <footer>
         <p>&copy; 2024 Meu Projeto de Acessibilidade</p>
     </footer>
-
-    <script>
-        // Função para o botão de teste de acessibilidade do primeiro código
-        document.getElementById('botaoTeste').addEventListener('click', function() {
-            alert('Teste de acessibilidade iniciado!');
-        });
-
-        // Função para verificar acessibilidade e redirecionar
-        function checkAccessibility() {
-            const url = document.getElementById('urlInput').value.trim();
-
-            // Verifica se a URL começa com http:// ou https://
-            if (!url.startsWith('http://') && !url.startsWith('https://')) {
-                alert('Por favor, insira uma URL válida que comece com http:// ou https://');
-                return;
-            }
-
-            // Redireciona para relatorio.html com a URL como parâmetro
-            window.location.href = `relatorio.html?url=${encodeURIComponent(url)}`;
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
