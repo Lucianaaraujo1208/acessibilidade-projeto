@@ -8,6 +8,7 @@ if (!url) {
     process.exit(1);
 }
 
+
 async function runTest() {
     try {
         const results = await pa11y(url);
@@ -27,3 +28,4 @@ const results = await pa11y(url, {
 });
 
 runTest();
+

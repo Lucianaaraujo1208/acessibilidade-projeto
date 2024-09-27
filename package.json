@@ -1,13 +1,19 @@
 {
   "name": "acessibilidade-projeto",
   "version": "1.0.0",
-  "main": "server.js",
-  "type": "module",
+  "description": "Projeto de verificação de acessibilidade",
+  "main": "index.js",
   "scripts": {
-      "start": "node server.js"
+    "start": "node index.js",
+    "test-a11y": "pa11y http://localhost:3000"
   },
   "dependencies": {
-      "express": "^4.17.1",
-      "pa11y": "^6.0.0"
-  }
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "pa11y": "^6.0.0"
+  },
+  "author": "Seu Nome",
+  "license": "ISC",
+  "type": "module"
 }
