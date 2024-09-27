@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificador de Acessibilidade</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/loading-bar@1.0.0/dist/loading-bar.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/loading-bar@1.0.0/dist/loading-bar.min.js"></script>
+</head>
+<body>
+    <header>
+        <h1><a href="#" id="navBar">Verificador de Acessibilidade</a></h1>
+    </header>
+    <main>
+        <section>
+            <h2>Teste de Acessibilidade</h2>
+            <p>Esta página será usada para simular uma análise automática de acessibilidade.</p>
+            <button id="botaoTeste">Clique para testar</button>
+        </section>
+        <section>
+            <h2>Verificador de Acessibilidade</h2>
+            <form id="urlForm">
+                <label for="urlInput">Digite a URL:</label>
+                <input type="text" id="urlInput" placeholder="https://example.com" required>
+                <button type="submit">Verificar</button>
+            </form>
+            <div class="loading" id="loading">
+                <div class="ldBar" data-preset="line"></div>
+                <p>Verificando acessibilidade...</p>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 Meu Projeto de Acessibilidade</p>
+    </footer>
+    <script>
+        document.getElementById('botaoTeste').addEventListener('click', function() {
+            alert('Teste de acessibilidade iniciado!');
+        });
+
+        document.getElementById('urlForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            document.getElementById('loading').style.display = 'block';
+            const url = document.getElementById('urlInput').value;
+            const response = await fetch(`/test?url=${encodeURIComponent(url)}`);
+
+            if (!response.ok) {
+                alert('Erro ao verificar a acessibilidade. Tente novamente mais tarde.');
+                document.getElementById('loading').style.display = 'none';
+                return;
+            }
+
+            const result = await response.text();
+            localStorage.setItem('accessibilityResult', result); // Armazenar o resultado no localStorage
+            window.location.href = 'result.html'; // Redirecionar para a página de resultado
+        });
+
+        document.getElementById('navBar').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.history.back();
+        });
+
+        window.addEventListener('pageshow', function(event) {
+            if (event.persisted) {
+                document.getElementById('urlForm').reset();
+                document.getElementById('loading').style.display = 'none';
+            }
+        });
+    </script>
+</body>
+</html>

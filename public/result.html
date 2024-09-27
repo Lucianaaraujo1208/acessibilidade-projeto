@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultado da Análise</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffffff; /* Fundo branco */
+            color: #00274d; /* Azul escuro e suave */
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            font-size: 3em; /* Aumentar tamanho do letreiro */
+        }
+        pre {
+            background-color: #f9f9f9;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            white-space: pre-wrap; /* Permite quebra de linha */
+            word-wrap: break-word; /* Permite quebra de palavra */
+        }
+        a {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: #00274d; /* Azul escuro e suave */
+            text-decoration: none;
+            font-size: 1.2em; /* Tamanho da fonte do link */
+        }
+        a:hover {
+            text-decoration: underline; /* Sublinha ao passar o mouse */
+        }
+    </style>
+</head>
+<body>
+    <h1>Resultado da Análise</h1>
+    <pre id="result"></pre>
+    <a href="#" id="backLink">Voltar</a>
+
+    <script>
+        // Função para obter o resultado do localStorage
+        const resultData = localStorage.getItem('accessibilityResult');
+        if (resultData) {
+            document.getElementById('result').textContent = resultData;
+            localStorage.removeItem('accessibilityResult'); // Limpa o resultado após exibir
+        } else {
+            document.getElementById('result').textContent = 'Nenhum resultado encontrado.';
+        }
+
+        // Função para voltar à página anterior
+        document.getElementById('backLink').addEventListener('click', function(e) {
+            e.preventDefault();
+            window.history.back();
+        });
+    </script>
+</body>
+</html>

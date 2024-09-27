@@ -1,14 +1,13 @@
 {
   "name": "acessibilidade-projeto",
   "version": "1.0.0",
-  "description": "Seu projeto de acessibilidade",
-  "main": "index.js",
+  "main": "server.js",
+  "type": "module",
   "scripts": {
-    "start": "http-server .",
-    "test-a11y": "node testA11y.js"
+      "start": "node server.js"
   },
-  "devDependencies": {
-    "http-server": "^14.1.1",
-    "pa11y": "^8.0.0"
+  "dependencies": {
+      "express": "^4.17.1",
+      "pa11y": "^6.0.0"
   }
 }
