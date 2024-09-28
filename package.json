@@ -2,20 +2,17 @@
   "name": "acessibilidade-projeto",
   "version": "1.0.0",
   "description": "Projeto de verificação de acessibilidade",
-  "main": "node server.js",
+  "main": "index.js",
   "scripts": {
-    "start": "node server.js",
-    "test-a11y": "npm start & wait-on http://localhost:3002 && npx pa11y http://localhost:3002"
+    "start": "node index.js",
+    "test-a11y": "pa11y http://localhost:3000"
   },
   "dependencies": {
-    "express": "^4.17.1",
-    "puppeteer": "^22.8.2"
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "pa11y": "^6.0.0"
   },
   "author": "Seu Nome",
-  "license": "ISC",
-  "type": "module",
-  "devDependencies": {
-    "pa11y": "^8.0.0",
-    "wait-on": "^8.0.1"
-  }
+  "license": "ISC"
 }
