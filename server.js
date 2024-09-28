@@ -1,5 +1,4 @@
-import express from 'express'; 
-import pa11y from 'pa11y';
+import express from 'express';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
@@ -20,14 +19,11 @@ app.get('/test', async (req, res) => {
         return res.status(400).send('URL não fornecida.');
     }
 
-    try {
-        const results = await pa11y(url);
-        res.send(JSON.stringify(results, null, 2)); // Enviar os resultados formatados
-    } catch (error) {
-        res.status(500).send(`Erro ao executar a análise: ${error.message}`);
-    }
+    // Remova a chamada do pa11y daqui, pois não devemos importar ou chamar diretamente aqui.
+    res.send('Análise de acessibilidade deve ser feita através do comando no terminal.');
 });
 
+// Iniciar o servidor
 app.listen(port, () => {
     console.log(`Servidor rodando em http://localhost:${port}`);
 });

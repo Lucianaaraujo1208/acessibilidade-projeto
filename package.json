@@ -5,7 +5,7 @@
   "main": "node server.js",
   "scripts": {
     "start": "node server.js",
-    "test-a11y": "npm start & npx pa11y http://localhost:3002"
+    "test-a11y": "npm start & wait-on http://localhost:3002 && npx pa11y http://localhost:3002"
   },
   "dependencies": {
     "express": "^4.17.1",
@@ -13,6 +13,9 @@
   },
   "author": "Seu Nome",
   "license": "ISC",
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "pa11y": "^8.0.0",
+    "wait-on": "^8.0.1"
+  }
 }
-
