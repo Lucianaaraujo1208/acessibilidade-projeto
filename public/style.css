@@ -57,7 +57,7 @@ footer {
 }
 
 .loading {
-    display: none; /* Inicialmente escondido */
+    display: none; /* Inicialmente escondido... */
     text-align: center;
     margin-top: 20px;
 }
