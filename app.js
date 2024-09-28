@@ -9,7 +9,7 @@ function App() {
   const testAccessibility = async () => {
     try {
       setError(null);
-      const response = await axios.post('http://localhost:5000/test-accessibility', { url });
+      const response = await axios.get(`http://localhost:3002/test?url=${encodeURIComponent(url)}`);
       setResults(response.data);
     } catch (err) {
       setError('Erro ao testar acessibilidade');

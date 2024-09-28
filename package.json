@@ -2,13 +2,14 @@
   "name": "acessibilidade-projeto",
   "version": "1.0.0",
   "description": "Projeto de verificação de acessibilidade",
-  "main": "index.js",
+  "main": "node server.js",
   "scripts": {
-    "start": "node index.js",
+    "start": "node server.js",
     "test-a11y": "pa11y http://localhost:3002"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "puppeteer": "^22.8.2"
   },
   "devDependencies": {
     "pa11y": "^6.0.0"
