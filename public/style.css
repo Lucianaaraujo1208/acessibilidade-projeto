@@ -8,20 +8,20 @@ body {
 }
 
 header {
-    background: #0056b3;
+    background: #0056b3; /* Cor do cabeçalho */
     color: #ffffff;
     padding: 10px 0;
     text-align: center;
 }
 
 header a {
-    color: #ffffff;
+    color: #ffffff; /* Cor dos links no cabeçalho */
     text-decoration: none;
     font-size: inherit; /* Mantém o tamanho da fonte do cabeçalho */
 }
 
 main {
-    background: #f9f9f9;
+    background: #f9f9f9; /* Cor de fundo do main */
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
@@ -40,14 +40,15 @@ input, button {
 }
 
 button {
-    background-color: #007BFF;
-    color: white;
+    background-color: #0072ed; /* Cor de fundo do botão ajustada para melhor contraste */
+    color: #ffffff; /* Cor do texto do botão */
     border: none;
     cursor: pointer;
+    transition: background-color 0.3s; /* Suaviza a transição de cor ao passar o mouse */
 }
 
 button:hover {
-    background-color: #0056b3;
+    background-color: #0056b3; /* Cor do botão ao passar o mouse */
 }
 
 footer {
@@ -56,7 +57,7 @@ footer {
 }
 
 .loading {
-    display: none;
+    display: none; /* Inicialmente escondido */
     text-align: center;
     margin-top: 20px;
 }

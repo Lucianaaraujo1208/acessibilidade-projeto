@@ -11,10 +11,10 @@
     "express": "^4.17.1",
     "puppeteer": "^22.8.2"
   },
-  "devDependencies": {
-    "pa11y": "^6.0.0"
-  },
   "author": "Seu Nome",
   "license": "ISC",
-  "type": "module"
+  "type": "module",
+  "devDependencies": {
+    "pa11y": "^8.0.0"
+  }
 }
