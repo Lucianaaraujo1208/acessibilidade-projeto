@@ -1,12 +1,16 @@
-import express from 'express';
+import express from 'express'; 
 import pa11y from 'pa11y';
 import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const port = 3000;
 
 // Serve arquivos estáticos
-app.use(express.static('public'));
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Endpoint para testar a acessibilidade
 app.get('/test', async (req, res) => {
