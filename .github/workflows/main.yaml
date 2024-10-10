@@ -3,7 +3,7 @@ name: Acessibilidade/projeto/TCC
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   test:
