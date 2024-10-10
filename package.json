@@ -9,11 +9,14 @@
     "test": "concurrently \"npm run start\" \"npm run test-a11y\""
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "glob": "^11.0.0",
+    "puppeteer": "^23.5.2",
+    "rimraf": "^6.0.1"
   },
   "devDependencies": {
-    "pa11y": "^6.0.0",
-    "concurrently": "^7.0.0"
+    "concurrently": "^7.0.0",
+    "pa11y": "^6.0.0"
   },
   "author": "Seu Nome",
   "license": "ISC"
