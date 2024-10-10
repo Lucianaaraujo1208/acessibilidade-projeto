@@ -1,24 +1,44 @@
-name: Acessibilidade/projeto/TCC  
+name: CI
 
-on: [push]
+on:
+  push:
+    branches:
+      - main
 
 jobs:
-  test-accessibility:
+  test:
     runs-on: ubuntu-latest
 
-    steps:
-    - uses: actions/checkout@v2
+    services:
+      my-service:
+        image: node:16
+        ports:
+          - 3000:3000
+        options: >-
+          --health-cmd "curl -f http://localhost:3000/ || exit 1"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
 
-    - name: Instalar dependências
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v2
+      with:
+        node-version: '16'
+
+    - name: Install dependencies
       run: npm install
 
-    - name: Iniciar servidor
+    - name: Start server
       run: npm start &
       env:
         NODE_ENV: test
 
-    - name: Aguardar o servidor iniciar
+    - name: Wait for server to start
       run: sleep 10
 
-    - name: Testar acessibilidade
+    - name: Run accessibility tests
       run: npx pa11y http://localhost:3000
