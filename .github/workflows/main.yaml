@@ -38,7 +38,7 @@ jobs:
         NODE_ENV: test
 
     - name: Wait for server to start
-      run: sleep 10
+      run: sleep 15  # Ajuste o tempo se necessário
 
     - name: Run accessibility tests
       run: npx pa11y http://localhost:3000
