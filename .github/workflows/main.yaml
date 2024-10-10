@@ -8,7 +8,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
     - name: Instalar dependências
       run: npm install
+
+    - name: Iniciar servidor
+      run: npm start &
+      env:
+        NODE_ENV: test
+
+    - name: Aguardar o servidor iniciar
+      run: sleep 10
+
     - name: Testar acessibilidade
-      run: npm run test-a11y
+      run: npx pa11y http://localhost:3000
