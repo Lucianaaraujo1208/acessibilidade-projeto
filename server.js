@@ -1,4 +1,4 @@
-const express = require('express'); 
+const express = require('express');
 const pa11y = require('pa11y');
 const path = require('path');
 
@@ -18,12 +18,18 @@ app.get('/test', async (req, res) => {
 
     try {
         const results = await pa11y(url);
-        res.send(JSON.stringify(results, null, 2)); // Enviar os resultados formatados
+        res.send(JSON.stringify(results, null, 2)); // Enviar os resultados formatados...
     } catch (error) {
         res.status(500).send(`Erro ao executar a análise: ${error.message}`);
     }
 });
 
+// Endpoint raiz
+app.get('/', (req, res) => {
+    res.send('Hello, World!');
+});
+
+// Inicia o servidor
 app.listen(port, () => {
     console.log(`Servidor rodando em http://localhost:${port}`);
 });
