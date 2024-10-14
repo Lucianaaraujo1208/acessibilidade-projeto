@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "node server.js",
-    "test-a11y": "pa11y http://localhost:3000",
+    "test-a11y": "pa11y http://localhost:3001",
     "test": "concurrently \"npm run start\" \"npm run test-a11y\""
   },
   "dependencies": {
@@ -18,6 +18,6 @@
     "concurrently": "^7.0.0",
     "pa11y": "^6.2.3"
   },
-  "author": "Seu Nome",
+  "author": "Luciana Araujo",
   "license": "ISC"
 }
