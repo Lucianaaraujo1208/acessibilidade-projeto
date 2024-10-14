@@ -10,7 +10,7 @@ if (!url) {
 async function runTest() {
     try {
         const results = await pa11y(url);
-        console.log(JSON.stringify(results, null, 2)); // Mostrar os resultados formatados
+        console.log(JSON.stringify(results, null, 2)); // Mostrar os resultados formatados..
     } catch (error) {
         console.error('Erro ao testar a URL:', error);
     }
