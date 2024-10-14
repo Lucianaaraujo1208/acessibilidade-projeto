@@ -17,9 +17,12 @@ app.get('/test', async (req, res) => {
     }
 
     try {
+        console.log(`Verificando acessibilidade da URL: ${url}`);
         const results = await pa11y(url);
+        console.log('Resultados da análise de acessibilidade:', results);
         res.send(JSON.stringify(results, null, 2)); // Enviar os resultados formatados...
     } catch (error) {
+        console.error('Erro ao executar a análise:', error.message);
         res.status(500).send(`Erro ao executar a análise: ${error.message}`);
     }
 });
@@ -30,7 +33,6 @@ app.get('/', (req, res) => {
 });
 
 // Inicia o servidor
-
 app.listen(PORT, () => {
     console.log(`Servidor rodando em http://localhost:${PORT}`);
 });
