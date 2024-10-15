@@ -1,6 +1,9 @@
-name: Acessibilidade/projeto/TCC  
+name: Acessibilidade/projeto/TCC
 
 on:
+  pull_request:
+    branches:
+      - master
   push:
     branches:
       - master
@@ -21,36 +24,36 @@ jobs:
           --health-retries 5
 
     steps:
-      - name: Checkout repository
+      - name: Checkout do código
         uses: actions/checkout@v2
 
-      - name: Set up Node.js
+      - name: Instalar Node.js
         uses: actions/setup-node@v2
         with:
           node-version: '16'
 
-      - name: Install dependencies
+      - name: Instalar dependências
         run: npm install
 
-      - name: Start server
+      - name: Iniciar o servidor
         run: |
           npm start &
           sleep 5  # Aguarda 5 segundos para garantir que o servidor inicie
         env:
           NODE_ENV: test
 
-      - name: Wait for server to be ready
+      - name: Esperar o servidor ficar pronto
         run: |
           for i in {1..30}; do
             if curl -s http://localhost:3001/; then
-              echo "Server is up!"
+              echo "Servidor está pronto!"
               exit 0
             fi
-            echo "Waiting for server to start..."
+            echo "Aguardando o servidor iniciar..."
             sleep 1
           done
-          echo "Server did not start in time!"
+          echo "O servidor não iniciou a tempo!"
           exit 1
 
-      - name: Run accessibility tests
+      - name: Executar testes de acessibilidade
         run: npx pa11y http://localhost:3001
