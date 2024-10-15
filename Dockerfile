@@ -3,6 +3,7 @@ FROM node:16
 
 # Instala as dependências do sistema necessárias para o Puppeteer
 RUN apt-get update && apt-get install -y \
+    chromium \
     libnss3 \
     libxss1 \
     libasound2 \
@@ -12,7 +13,7 @@ RUN apt-get update && apt-get install -y \
     libxcomposite1 \
     libxcursor1 \
     libxdamage1 \
-    libxshmfence1 \ 
+    libxshmfence1 \
     libxi6 \
     libxtst6 \
     libnspr4 \
@@ -27,13 +28,17 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 
 # Copia os arquivos de pacotes para o contêiner
-COPY package*.json ./
+COPY package*.json ./ 
 
 # Instala as dependências
 RUN npm install
 
 # Copia o restante dos arquivos do projeto
 COPY . .
+
+# Define variáveis de ambiente para o Puppeteer
+ENV PUPPETEER_SKIP_DOWNLOAD true
+ENV CHROME_BIN=/usr/bin/chromium
 
 # Expõe a porta que o aplicativo irá rodar
 EXPOSE 3001

@@ -1,4 +1,4 @@
-version: '3.8'  # Versão do Docker Compose
+version: '3'  # Versão do Docker Compose
 
 services:
   app:
@@ -6,9 +6,8 @@ services:
       context: .  # O contexto de construção é o diretório atual
       dockerfile: Dockerfile  # Especifica o arquivo Dockerfile
     ports:
-      - "3001:3001"  # Mapeia a porta 3000 do contêiner para a porta 3000 da máquina host
+      - "3001:3001"  # Mapeia a porta 3001 do contêiner para a porta 3001 da máquina host
     volumes:
       - .:/app  # Mapeia o diretório atual para o diretório /app no contêiner
     environment:
       NODE_ENV: development  # Define a variável de ambiente NODE_ENV
-
